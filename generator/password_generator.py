@@ -9,7 +9,7 @@ def generate_password(lenght=12):
         string.punctuation
     )
 
-    password = "".join(random.choice(characters) for _ in range(length))
+    password = "".join(random.choice(characters) for _ in range(lenght))
     return password
 
 def has_uppercase(password):

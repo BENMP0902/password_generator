@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install -r requirements-dev.txt
 
-CMD ["python", "main.py"]
+CMD ["python", "generator.py"]

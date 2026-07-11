@@ -12,9 +12,9 @@ jobs:
 
     steps:
       - name: Checkout code  
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13.7"
       - name: Install dependencies
@@ -29,9 +29,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          
+      # 1. Insertamos el paso para crear la variable en minúsculas
+      - name: Set lowercase owner
+        run: echo "OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_ENV"
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: true
-          #usuario hardcodeado plo ideal es $ {{ github.actor }}/
-          tags: ghcr.io/benmp0902/generator_pass:latest 
+          # 2. Usamos la variable de entorno que creamos en el paso anterior
+          tags: ghcr.io/${{ env.OWNER }}/generator_pass:latest

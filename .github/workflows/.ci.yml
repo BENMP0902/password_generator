@@ -33,4 +33,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ghcr.io/${{ github.actor }}/generator_pass:latest
+          #usuario hardcodeado plo ideal es $ {{ github.actor }}/
+          tags: ghcr.io/benmp0902/generator_pass:latest 

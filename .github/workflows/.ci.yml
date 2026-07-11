@@ -33,7 +33,7 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                 push: true
-                tags: ghcr.io/{ github.actor }/generator_pass:latests
+                tags: ghcr.io/{ github.actor }/generator_pass:latest
              
 
 
